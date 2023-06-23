@@ -2,10 +2,10 @@
   "name": "spotify-song-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-assets": "ts-node tools/copyAssets",
+    "copy-assets": "ts-node tools/scripts/copyAssets",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc copy-assets",
@@ -20,7 +20,8 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "querystring": "^0.2.1"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
@@ -29,8 +30,8 @@
     "@types/node": "^20.3.1",
     "@types/shelljs": "^0.8.12",
     "fs-extra": "^11.1.1",
-    "nodemon": "^2.0.22",
-    "npm-run-all": "^4.1.5",
+    "nodemon": "^1.14.9",
+    "npm-run-all": "^1.7.0",
     "rimraf": "^5.0.1",
     "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
