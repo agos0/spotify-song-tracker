@@ -1,7 +1,10 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-import { handleLogin } from "./middleware/auth";
+import { generateRandomString } from "./utils/stringGenerator";
+import { handleLogin, completeAuth, testAuth } from "./middleware/auth";
+import querystring from "querystring";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -14,16 +17,13 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "styles")));
 
+app.get('/login', handleLogin);
+
+app.get('/callback', completeAuth);
+
 app.get("/", (req, res) => {
     res.render("index");
 });
-
-app.get("/auth", handleLogin);
-
-app.get("/callback", (req, res) => {
-    res.send("logged in")
-});
-
 
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
