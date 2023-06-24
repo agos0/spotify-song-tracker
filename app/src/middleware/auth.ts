@@ -36,7 +36,7 @@ export const completeAuth = async (req: Request, res: Response) => {
   const code = req.query.code || null;
   const state = req.query.state as string || null;
 
-  if (state === null) {
+  if (state === null || !validStates.includes(state)) {
     res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'
