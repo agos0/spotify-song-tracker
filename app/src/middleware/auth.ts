@@ -28,10 +28,6 @@ export const handleLogin = (req: Request, res: Response) => {
     }));
 };
 
-export const testAuth = (req: Request, res: Response) => {
-  res.send(req.query.state);
-}
-
 export const completeAuth = async (req: Request, res: Response) => {
   const code = req.query.code || null;
   const state = req.query.state as string || null;
@@ -68,12 +64,12 @@ export const completeAuth = async (req: Request, res: Response) => {
 
       const responseData = response.data;
 
-      const access_token = responseData.access_token;
-      const refresh_token = responseData.refresh_token;
+      const accessToken = responseData.access_token;
+      const refreshToken = responseData.refresh_token;
 
       const options = {
         url: 'https://api.spotify.com/v1/me',
-        headers: { 'Authorization': 'Bearer ' + access_token },
+        headers: { 'Authorization': 'Bearer ' + accessToken },
         json: true
       };
 
@@ -85,8 +81,8 @@ export const completeAuth = async (req: Request, res: Response) => {
 
       res.redirect('/#' +
         querystring.stringify({
-          access_token,
-          refresh_token
+          accessToken,
+          refreshToken
         }));
     } catch (error) {
       res.redirect('/#' +
@@ -95,4 +91,33 @@ export const completeAuth = async (req: Request, res: Response) => {
         }));
     }
   }
+}
+
+export const tokenRefresh = async (req: Request, res: Response) => {
+  const refreshToken = req.query.refresh_token;
+  const authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: { 'Authorization': 'Basic ' + (Buffer.from(clientId + ':' + clientSecret).toString('base64')) },
+    form: {
+      grant_type: 'refresh_token',
+      refresh_token: refreshToken
+    },
+    json: true
+  };
+  axios.post<any>(authOptions.url, querystring.stringify(authOptions.form as Record<string, string>), {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': authOptions.headers.Authorization
+    }
+  })
+    .then((response) => {
+      const responseData = response.data;
+      const access_token = responseData.access_token;
+      res.send({
+        'access_token': access_token
+      });
+    })
+    .catch((error) => {
+      res.status(500).send(`failed to refresh token: ${JSON.stringify(error.response.data)}`);
+    });
 }

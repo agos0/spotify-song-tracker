@@ -1,10 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-import { generateRandomString } from "./utils/stringGenerator";
-import { handleLogin, completeAuth, testAuth } from "./middleware/auth";
-import querystring from "querystring";
-import cookieParser from "cookie-parser";
+import { handleLogin, completeAuth } from "./middleware/auth";
 
 dotenv.config();
 
