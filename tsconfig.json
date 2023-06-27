@@ -15,6 +15,7 @@
         }
     },
     "include": [
-        "app/src/**/*"
-    ]
+        "app/server/src/middleware",
+        "app/server/src/main.ts", 
+        "app/server/src/utils"    ]
 }
