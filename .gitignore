@@ -1,3 +1,29 @@
 node_modules
 app/api/dist
 app/api/.env
+
+app/client/ref.md
+app/client/.DS_Store
+.DS_Store
+app/client/dist
+app/client/tests/e2e/videos/
+app/client/tests/e2e/screenshots/
+
+# local env files
+app/client/.env.local
+app/client/.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

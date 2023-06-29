@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/backMain.js",
   "scripts": {
     "clean": "rimraf dist/",
     "copy-assets": "ts-node scripts/copyAssets",

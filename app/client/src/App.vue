@@ -1,6 +1,6 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <img alt="SST logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Spotify Song Tracker"/>
 </template>
 
 <script lang="ts">

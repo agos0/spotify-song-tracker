@@ -6,5 +6,5 @@ export const register = ( app: express.Application ) => {
         res.render("testView")
     });
     app.get("/login", handleLogin);
-    app.get("/callback", completeAuth);
+    app.get("/me/home", completeAuth);
 }
