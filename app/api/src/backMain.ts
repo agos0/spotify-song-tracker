@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
-import * as routes from "./routes";
+import * as aSeq from "./routes/authSequence";
 
 dotenv.config();
 
@@ -12,10 +12,10 @@ const app = express();
 
 app.use(cors());
 
-app.set("views", path.join(__dirname, "/test"));
-app.set("view engine", "ejs");
-
-routes.register(app);
+app.get("/", (req, res) => {
+    res.send('running');
+})
+aSeq.route(app);
 
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
