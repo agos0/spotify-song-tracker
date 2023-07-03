@@ -1,22 +1,29 @@
 <template>
-    <div>
-      <navbar v-if="isUserStats" />
-      <h1>user stats page</h1>
-    </div>
-  </template>
-  
-  <script lang="ts">
-  import Navbar from '../components/NavBar.vue';
-  
-  export default {
-    components: {
-      Navbar
-    },
-    computed: {
-      isUserStats() {
-        return this.$route.path === '/me/stats';
-      }
-    }
-  };
-  </script>
-  
+  <div>
+    <navbar v-if="isUserStats" />
+    <h1>user stats page</h1>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import Navbar from '../components/NavBar.vue';
+
+export default defineComponent({
+  components: {
+    Navbar
+  },
+  setup() {
+    const route = useRoute();
+
+    const isUserStats = computed(() => {
+      return route.path === '/me/home';
+    });
+
+    return {
+      isUserStats
+    };
+  }
+});
+</script>

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import EntryView from '../views/EntryView.vue'
+import EntryView from '../pages/EntryView.vue'
 import HomePage from '../pages/HomePage.vue'
 import UserStats from '../pages/UserStats.vue'
 import UserSelections from '../pages/UserSelections.vue'
