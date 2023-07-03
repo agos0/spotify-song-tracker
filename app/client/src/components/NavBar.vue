@@ -51,10 +51,6 @@ a {
   &:hover {
     color: #8bff76;
   }
-
-  &.router-link-exact-active {
-    color: #8bff76;
-  }
 }
 </style>
   
