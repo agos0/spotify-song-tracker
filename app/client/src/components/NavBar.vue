@@ -25,7 +25,9 @@
   
   <style scoped lang="scss">
 nav {
+  background-color: #2c3e50;
   padding: 20px;
+  border-bottom: 5px solid #8bff76;
 }
 
 ul {
@@ -36,20 +38,22 @@ ul {
 
 li {
   display: inline;
-  margin-right: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 a {
+  font-size: larger;
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
   text-decoration: none;
 
   &:hover {
-    color: #42b983;
+    color: #8bff76;
   }
 
   &.router-link-exact-active {
-    color: #42b983;
+    color: #8bff76;
   }
 }
 </style>
