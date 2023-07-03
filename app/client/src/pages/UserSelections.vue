@@ -18,7 +18,7 @@ export default defineComponent({
     const route = useRoute();
 
     const isUserSelections = computed(() => {
-      return route.path === '/me/home';
+      return route.path === '/me/selections';
     });
 
     return {
