@@ -25,10 +25,12 @@ export default class Entry extends Vue {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+h1 {
+  color: black;
+}
 h3 {
-  margin: 40px 0 0;
+  color: black;
 }
 ul {
   list-style-type: none;
@@ -39,6 +41,22 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #8bff76;
+}
+button {
+  background-color: #8bff76;
+  border: none;
+  color: black;
+  padding: 10px 15px;
+  border: 2px solid #000000;
+  border-radius: 3000px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  &:hover {
+    background-color: #000000;
+    color: white;
+    border-color: #8bff76;
+  }
 }
 </style>

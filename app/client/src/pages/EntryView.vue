@@ -1,7 +1,7 @@
 <template>
   <div class="entry">
     <img alt="SST logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Spotify Song Tracker"/>
+    <HelloWorld msg="Spotify Song Tracker"/>
   </div>
 </template>
 

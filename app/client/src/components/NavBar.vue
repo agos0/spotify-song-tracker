@@ -25,7 +25,7 @@
   
   <style scoped lang="scss">
 nav {
-  background-color: #2c3e50;
+  background-color: black;
   padding: 20px;
   border-bottom: 5px solid #8bff76;
 }

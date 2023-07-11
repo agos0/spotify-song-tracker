@@ -3,6 +3,7 @@ import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
 import * as aSeq from "./routes/authSequence";
+import * as statRoute from "./routes/stats"
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
     res.send('running');
 })
 aSeq.route(app);
+statRoute.route(app);
 
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
