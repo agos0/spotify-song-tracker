@@ -79,6 +79,8 @@ export const completeAuth = async (req: Request, res: Response) => {
 
       const profileData = profileResponse.data;
 
+      res.json({accessToken});
+
       res.redirect(`http://localhost:8080/me/home?access_token=${accessToken}`);
 
     } catch (error) {
